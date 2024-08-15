@@ -1,0 +1,57 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty' // jetty 9 with servlet-api 3.0+
+
+group = 'org.home.spring.mvc'
+version = '1.0.0'
+
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework:spring-core:${springframeworkVersion}"
+    compile "org.springframework:spring-context:${springframeworkVersion}"
+    compile "org.springframework:spring-webmvc:${springframeworkVersion}"
+    compile "org.springframework:spring-jdbc:${springframeworkVersion}"
+
+    compile 'javax.inject:javax.inject:1'
+
+    compile 'javax.validation:validation-api:1.1.0.Final'
+    compile 'org.hibernate:hibernate-validator:5.2.2.Final'
+
+    compile "org.hsqldb:hsqldb:2.3.3"
+
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'javax.servlet.jsp.jstl:jstl:1.2'
+
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-api:1.7.16'
+
+    testCompile "org.springframework:spring-test:${springframeworkVersion}"
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.2.0'
+    testCompile 'pl.pragmatists:JUnitParams:1.0.4'
+    testCompile 'org.mockito:mockito-core:1.10.19'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:1.2.4'
+    }
+}
+
+gretty {
+    port = 8080
+    contextPath = 'mvc'
+    servletContainer = 'jetty9'
+}
