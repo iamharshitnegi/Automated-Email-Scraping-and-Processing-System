@@ -15,4 +15,4 @@ for periodic scraping.
 - **MIME Handling:** Processed different email content types (plain text, HTML, and multi-part messages).
 - **Filtering and Categorization:** Implemented logic to filter emails based on subject, sender, and content for automated processing.
 - **Attachment Processing:** Extracted and saved email attachments from multi-part emails.
-- **Scheduling:** Automated the periodic execution of email scraping using `ScheduledExecutorService`
+- **Scheduling:** Automated the periodic execution of email scraping using `ScheduledExecutorService`.
